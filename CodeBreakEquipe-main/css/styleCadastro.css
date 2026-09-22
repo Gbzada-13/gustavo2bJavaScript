@@ -1,0 +1,135 @@
+:root {
+    --primary-color: #0f2a4a;
+    --secondary-color: #1e3a8a;
+    --accent-gold: #f2a900;
+    --accent-hover-gold: #d49400;
+    --text-dark: #1f2937;
+    --text-muted: #4b5563;
+    --bg-light: #fdfbf7;
+    --white: #ffffff;
+    --border-color: #e5e7eb;
+}
+
+body {
+    background-color: var(--primary-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* CABEÇALHO */
+.cabeçalho-cadastro {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.container-cabeçalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-cabeçalho a {
+    text-decoration: none ;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo-icon {
+    margin-left: 20px;
+}
+
+.logo span span { color: var(--accent-gold); }
+
+/* PRINCIPAL*/
+.principal {
+    display: flex;
+    justify-content: center;
+}
+
+/* FORMULARIO */
+.container-form {
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin-top: 60px;
+    padding-top: 10px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 70px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.623);
+    border-radius: 12px;
+}
+
+.container-form h1 {
+    margin-bottom: 40px;
+    color: var(--accent-gold);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.24);
+    text-align: center;
+}
+
+.container-form label {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.inputs-form {
+    border-radius: 12px;
+    outline: none;
+    padding: 10px;
+    border: solid 1px var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.container-form button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 60%;
+    border-radius: 12px;
+    border: solid 1px var(--accent-gold);
+    color: var(--accent-gold);
+    background-color: white;
+    transition: 0.3s;
+}
+
+.container-form button:hover {
+    background-color: var(--accent-hover-gold);
+    border: solid 1px var(--accent-hover-gold);
+    color: white;
+    cursor: pointer;
+    transform: translateY(-3px);
+    transition: 0.3s;
+}
+
+.container-form p {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.container-form a {
+    text-align: center;
+    color: var(--secondary-color);
+    text-decoration: none;
+    width: 25%;
+}
+
+.container-form a:hover {
+    color: var(--accent-hover-gold);
+}

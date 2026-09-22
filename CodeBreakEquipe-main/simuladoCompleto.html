@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENEMBreak — Estudar</title>
+    <link rel="shortcut icon" href="img/png-transparent-digital-marketing-business-distance-education-school-study-text-service-people-remove-bg-io.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html">
+                <div class="logo">
+                    <span class="logo-icon">📖</span>
+                    <span class="logo-text">ENEM<span>Break</span></span>
+                </div>
+            </a>
+
+        </div>
+    </header>
+
+    <div class="container-site" id="container-site"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const simulado = params.get("simulado");
+
+        const simulados = {
+            biologia: "https://aluno.enempr.com.br/aulas/019d9cc9-7c2e-7035-83d4-e47819a095dc/topicos",
+            fisica: "https://aluno.enempr.com.br/aulas/019d9cc9-7e48-7d78-824d-28da78564924/topicos",
+            matematica: "https://aluno.enempr.com.br/aulas/019d9cc9-98d1-7f20-8089-d2f544760229/topicos",
+            historia: "https://aluno.enempr.com.br/aulas/019d9cc9-8825-7286-993e-5ce10488b845/topicos",
+            geografia: "https://aluno.enempr.com.br/aulas/019d9cc9-860b-7280-a402-57468c4782ad/topicos",
+            portugues: "https://aluno.enempr.com.br/aulas/019d9c9c-61da-7710-99ba-444863e4ec2c/topicos",
+            completo: "https://aluno.enempr.com.br/simulados/01a0a4aa-0a2f-7eba-a449-baf2f182c768",
+            demo: "https://aluno.enempr.com.br/simulados/01a09b93-16bd-7afc-aa78-6aa6f1892bec",
+            simuladomatematica: "https://aluno.enempr.com.br/simulados/01a0a4b2-1013-7731-8ebe-d98d25e50e77",
+            simuladoredacao: "",
+            aula1ling: "https://aluno.enempr.com.br/aulas/019d9c9c-61da-7710-99ba-444863e4ec2c/topicos/019d9cd1-931a-7a9a-80ce-375fce3f8709/licoes?aula=c1371c1c-c42b-11ed-bd1b-1c491aa5f0c5",
+            aula2ling: "https://aluno.enempr.com.br/aulas/019d9c9c-63fc-76f4-a7da-919c483fbd66/topicos/019d9cd1-d277-790d-b864-e645d271d52f/licoes?aula=cef41008-6c4d-4e98-8a80-cee7b5c37916",
+            aula3ling: "https://aluno.enempr.com.br/aulas/019d9c9c-61da-7710-99ba-444863e4ec2c/topicos/019d9cd1-8a4d-7a1f-a794-05a4aa3126e5/licoes?aula=cbcf3cb9-196b-40ad-96f3-516a5fc1f1a5",
+            aula4ling: "https://aluno.enempr.com.br/aulas/019d9c9c-6623-7dc2-a46d-beacd94add8f/topicos/019d9cd1-3c45-7f24-97a8-3632b3d99782/licoes?aula=b1ed4a5a-901b-45c6-8bcf-08a11483446a",
+            aula5ling: "https://aluno.enempr.com.br/aulas/019d9cc9-8c91-7876-8632-a790bf3eb3c4/topicos/019d9cd0-1bb4-79fc-bf96-66c08439c776/licoes?aula=3441163b-b07a-445b-a83f-88badbf6e169",
+            aula1hum: "https://aluno.enempr.com.br/aulas/019d9cc9-8825-7286-993e-5ce10488b845/topicos/019d9ccf-b45a-7823-b010-eeb7194ef717/licoes?aula=38b76700-2050-4768-bc1a-5c6d445f1396",
+            aula2hum: "https://aluno.enempr.com.br/aulas/019d9cc9-860b-7280-a402-57468c4782ad/topicos/019d9ccf-9899-79da-a729-217f51917880/licoes?aula=03c8224a-1b6b-470a-a943-6a77d1414c2a",
+            aula3hum: "https://aluno.enempr.com.br/aulas/019d9cc9-83ee-7000-b168-97abef66dc3e/topicos/019d9ccf-1191-7f37-8880-6fd880fb2323/licoes?aula=676222f4-75be-4fc4-af49-25c167e7b70e",
+            aula1nat: "https://aluno.enempr.com.br/aulas/019d9cc9-7c2e-7035-83d4-e47819a095dc/topicos/019d9ccc-9b04-75eb-ab74-fb102860e587/licoes?aula=cdc4c702-bfbe-449a-884b-ac1ec3f87909",
+            aula2nat: "https://aluno.enempr.com.br/aulas/019d9cc9-7e48-7d78-824d-28da78564924/topicos/019d9ccd-1904-78b0-a086-128f870226fd/licoes?aula=ef75face-fbe8-4c60-8314-4a7b94749116",
+            aula3nat: "https://aluno.enempr.com.br/aulas/019d9cc9-81bf-7e82-8f56-eca630b326ee/topicos/019d9cce-86a9-71c0-8325-1c76251e2ae3/licoes?aula=001f16a9-2ca7-4944-a2b3-009dfdf0f9b3",
+            aula1mat: "https://aluno.enempr.com.br/aulas/019d9cc9-98d1-7f20-8089-d2f544760229/topicos/019d9cd2-5926-75ce-ad4c-cfbc15e70ce5/licoes?aula=0acbbff7-6223-400d-a343-686d7f45d6dc",
+            aula2mat: "https://aluno.enempr.com.br/aulas/019d9cc9-98d1-7f20-8089-d2f544760229/topicos/019d9cd2-9172-78ac-931e-4fdbf6b28c59/licoes?aula=c2d69439-7c5d-4a05-ae3e-436d84f6c66e",
+            aula3mat: "https://aluno.enempr.com.br/aulas/019d9cc9-98d1-7f20-8089-d2f544760229/topicos/019d9cd2-75ab-75ca-93fe-bf143cc6b7a6/licoes?aula=bcbc8ad5-74c9-4b6c-b0ef-cb6db3d8e85b",
+            aula1red: "https://aluno.enempr.com.br/aulas/019d9cc9-96b7-7d6b-a183-670c0c405bbb/topicos/019d9cd2-18bc-797a-bc57-e7892da375f2/licoes?aula=e3cf4573-9431-44c4-8431-177fc9c79b7a",
+            aula2red: "https://aluno.enempr.com.br/aulas/019d9cc9-96b7-7d6b-a183-670c0c405bbb/topicos/019d9cd1-fb68-7861-9315-e0babf96abbc/licoes?aula=15ce3917-0660-4146-9759-414789a4db12"
+        };
+
+        const container = document.getElementById("container-site");
+
+        if (simulado && simulados[simulado]) {
+            container.innerHTML = `
+                <iframe
+                    src="${simulados[simulado]}"
+                    title="Simulado de ${simulado}"
+                    style="width: 100%; height: 93vh; border: none;">
+                </iframe>
+            `;
+        } else {
+            container.innerHTML = "<p style='text-align:center; padding: 2rem;'>Simulado não encontrado.</p>";
+        }
+    </script>
+</body>
+</html>
